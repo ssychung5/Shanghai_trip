@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<title>상하이 여행</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f5f7;color:#202124;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif}
+header{background:#111827;color:white;padding:20px 18px 16px;position:sticky;top:0;z-index:5}
+h1{margin:0;font-size:23px}.sub{font-size:12px;opacity:.72;margin-top:4px}
+main{max-width:760px;margin:auto;padding:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button,.card{border:0;border-radius:17px;background:white;box-shadow:0 2px 10px #0000000d}
+button{padding:16px;text-align:left;font-size:15px;cursor:pointer}.emoji{font-size:26px;display:block;margin-bottom:6px}
+.card{padding:15px;margin-top:12px}.detail{display:none}.detail.active{display:block}
+.back{background:#e5e7eb;margin-bottom:10px}.day{margin:16px 0}.day h2{font-size:18px;margin:0 0 8px}
+.item{background:white;border-radius:14px;padding:13px 14px;margin:7px 0;box-shadow:0 1px 7px #0000000a}
+.time{font-weight:750;color:#2563eb;margin-right:7px}.tag{font-size:11px;padding:3px 7px;border-radius:99px;background:#eef2ff;color:#3730a3}
+.note,.small{font-size:12px;color:#666;margin-top:5px}.done{opacity:.55;text-decoration:line-through}
+.install{display:none;margin-top:12px;background:#2563eb;color:white;width:100%;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>🇨🇳 상하이 여행</h1><div class="sub">2026.10.09(금) ~ 10.12(월) · 4일</div></header>
+<main>
+<section id="home">
+<div class="grid">
+<button onclick="show('schedule')"><span class="emoji">📅</span><b>전체 일정</b><br><span class="small">날짜별 여행 코스</span></button>
+<button onclick="show('booking')"><span class="emoji">🎫</span><b>예약 체크</b><br><span class="small">예약 필요한 항목</span></button>
+<button onclick="show('places')"><span class="emoji">📍</span><b>장소 & 동선</b><br><span class="small">추후 계속 업데이트</span></button>
+<button onclick="show('check')"><span class="emoji">✅</span><b>준비 체크</b><br><span class="small">완료하면 눌러 체크</span></button>
+</div>
+<button id="installBtn" class="install" onclick="installApp()">📲 홈 화면에 앱 설치</button>
+<div class="card"><b>✈️ 핵심 교통</b><div class="small">10/9 12:00 김포 출발 → 12:55 훙차오 도착<br>10/12 08:05 훙차오 출발 → 11:00 김포 도착</div></div>
+</section>
+
+<section id="schedule" class="detail">
+<button class="back" onclick="show('home')">← 홈</button>
+<div class="day"><h2>DAY 1 · 10/9 (금)</h2>
+<div class="item"><span class="time">12:00</span>김포공항 출발 ✈️</div>
+<div class="item"><span class="time">12:55</span>훙차오공항 도착 ✈️</div>
+<div class="item"><span class="time">14:00</span>호텔 픽업 웨건 🚐 <span class="tag">예약</span></div>
+<div class="item"><span class="time">15:00–17:00</span>난징동루 구경 & 쇼핑 🛍️</div>
+<div class="item"><span class="time">18:00</span>헌지우 이치엔 양꼬치 🥩 <span class="tag">예약필수</span></div>
+<div class="item"><span class="time">20:00</span>황푸강 유람선 🌃</div></div>
+<div class="day"><h2>DAY 2 · 10/10 (토)</h2>
+<div class="item"><span class="time">아침</span>호텔 조식 🥐</div>
+<div class="item"><span class="time">08:00</span>인민광장 📍</div>
+<div class="item"><span class="time">점심</span>Jiajia Bao 🍽️</div>
+<div class="item"><span class="time">오후</span>주가각(朱家角) 수향마을 🏮 <span class="tag">Trip.com 예약</span><div class="note">내부 이동동선 추후 추가</div></div></div>
+<div class="day"><h2>DAY 3 · 10/11 (일)</h2>
+<div class="item"><span class="time">아침</span>호텔 조식 🥐</div>
+<div class="item"><span class="time">08:00</span>예원 오픈런 🌿</div>
+<div class="item"><span class="time">점심</span>Nanxiang Steamed Bun 🥟</div>
+<div class="item"><span class="time">오후</span>루자쭈이 → 상하이 타워 → 와이탄 → 신천지 🌆</div>
+<div class="item"><span class="time">저녁</span>저녁식사 🍜</div>
+<div class="item"><span class="time">19:30</span>상하이 서커스 🎪 <span class="tag">예약 예정</span></div></div>
+<div class="day"><h2>DAY 4 · 10/12 (월)</h2>
+<div class="item"><span class="time">05:30</span>호텔 → 택시 픽업 🚕</div>
+<div class="item"><span class="time">05:50</span>공항 도착</div>
+<div class="item"><span class="time">05:50–08:05</span>공항 아침식사 & 출국수속 ☕</div>
+<div class="item"><span class="time">08:05</span>훙차오 출발 ✈️</div>
+<div class="item"><span class="time">11:00</span>김포 도착 → 해산 🎉</div></div>
+</section>
+
+<section id="booking" class="detail"><button class="back" onclick="show('home')">← 홈</button><h2>🎫 예약 체크</h2>
+<div class="item">☐ 헌지우 이치엔 양꼬치 · 10/9 18:00 <b>예약필수</b></div>
+<div class="item">☐ 주가각 수향마을 투어 · 10/10 오후 <b>Trip.com</b></div>
+<div class="item">☐ 상하이 서커스 · 10/11 19:30</div>
+<div class="item">☑ 호텔 픽업 웨건 · 10/9 14:00</div>
+<div class="item">☑ 호텔 → 공항 택시 · 10/12 05:30</div></section>
+
+<section id="places" class="detail"><button class="back" onclick="show('home')">← 홈</button><h2>📍 장소 & 동선</h2>
+<div class="item"><b>10/10 주가각</b><div class="note">수향마을 내부 이동동선, 배 탑승, 출발·복귀시간 추후 추가</div></div>
+<div class="item"><b>10/11 시내</b><div class="note">루자쭈이 → 상하이 타워 → 와이탄 → 신천지. 교통수단과 예상 소요시간 추후 추가</div></div>
+<div class="item"><b>항공</b><div class="note">편명·좌석·터미널 확정 후 추가</div></div></section>
+
+<section id="check" class="detail"><button class="back" onclick="show('home')">← 홈</button><h2>✅ 준비 체크</h2>
+<div class="item" onclick="toggle(this)">☐ 항공편 / 좌석 확인</div>
+<div class="item" onclick="toggle(this)">☐ 호텔 예약 확인</div>
+<div class="item" onclick="toggle(this)">☐ 양꼬치 예약</div>
+<div class="item" onclick="toggle(this)">☐ 주가각 투어 예약</div>
+<div class="item" onclick="toggle(this)">☐ 상하이 서커스 예약</div>
+<div class="item" onclick="toggle(this)">☐ 공항 이동 예약 확인</div>
+<div class="item" onclick="toggle(this)">☐ 중국 현지 교통 / 결제 준비</div></section>
+</main>
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').style.display='block'});
+async function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null}}
+function show(id){document.querySelectorAll('.detail,#home').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+function toggle(el){el.classList.toggle('done');el.textContent=el.classList.contains('done')?'☑ '+el.textContent.replace(/^☐ /,''): '☐ '+el.textContent.replace(/^☑ /,'')}
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
